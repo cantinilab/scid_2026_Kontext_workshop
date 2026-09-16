@@ -1,9 +1,9 @@
 # Spatial Cell ID 2026 — Kontext workshop
 
-Welcome! This folder contains everything you need for the Kontext hands-on session:
+This folder contains everything you need for the Kontext hands-on session:
 the slides, a dataset (8 sections of mouse heart, Xenium), the Kontext code, and the notebook.
 
-**If possible, steps 1 to 5 are to be done before the workshop.** (approximately 20mins)
+**If you are running this from the VM, copy this directory in /mydatalocal and start from Step 4.** 
 
 ---
 
@@ -41,7 +41,7 @@ When it finishes, **close the terminal and open a new one**. You should now see
 Download and unzip the `scid_2026_workshop` and open the directory in the terminal : 
 
 ```bash
-cd ~/Desktop/scid_2026_workshop
+cd path/scid_2026_workshop
 ```
 
 Check you are in the right place:
@@ -84,21 +84,16 @@ pip install -e . --no-deps
 python -m ipykernel install --user --name kontext --display-name "kontext"
 ```
 
-Then check that everything works:
-
-```bash
-Then check that everything works:
-```
-
 ## Step 6 — Launch the notebook
 
+Click on Kontext jupyter 
+
+or
+
+Click on jupyter and choose Kontext on the top right button. 
+
+or 
+
 ```bash 
-jupyter lab
+jupyter notebook
 ```
-
-Your browser should open automatically. In the file list on the left, double-click
-notebooks, then Spatial_cell_ID_workshop.ipynb.
-
-Before running anything, look at the top right corner of the notebook: it must
-say kontext. If it says something else, click on it and pick kontext from
-the list.
