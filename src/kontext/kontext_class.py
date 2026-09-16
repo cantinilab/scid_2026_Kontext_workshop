@@ -105,6 +105,17 @@ class Kontext:
             w = cross_weights(w, adata.obs[mask_column])
         compute_niche_context(adata, w, cell_type_key=cell_type_key,verbose=verbose)
 
+
+
+    def local_alignment(self,adata, layer_C="C"):
+        from kontext.utils import zscore,to_dense
+        """Per-cell context correlation (Pearson):.cosine similarity in PCA space."""
+        Xz, Cz = zscore(to_dense(adata.X)), zscore(to_dense(adata.layers[layer_C]))
+        num = (Xz * Cz).sum(1)
+        den = np.sqrt((Xz**2).sum(1) * (Cz**2).sum(1)) + 1e-10
+        adata.obs["local_alignment"] = np.asarray((num / den).astype(np.float32)).ravel()
+
+
 # ---- computation (private) ----
 
     def ensure_weights(self, adata):

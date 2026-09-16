@@ -403,13 +403,6 @@ def safe_nz(matrix, axis):
     return counts
 
 
-def me_correlation(adata, layer_C="C"):
-    """Per-cell context correlation (Pearson):.cosine similarity in PCA space."""
-    Xz, Cz = zscore(to_dense(adata.X)), zscore(to_dense(adata.layers[layer_C]))
-    num = (Xz * Cz).sum(1)
-    den = np.sqrt((Xz**2).sum(1) * (Cz**2).sum(1)) + 1e-10
-    adata.obs["me_correlation"] = np.asarray((num / den).astype(np.float32)).ravel()
-
 
 
 
