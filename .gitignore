@@ -1,0 +1,15 @@
+# data — distributed separately, too large for git
+data/*.h5ad
+data/*.zarr/
+
+# notebooks
+.ipynb_checkpoints/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+
+# os
+.DS_Store
